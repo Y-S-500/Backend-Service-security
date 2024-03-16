@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.sena.servicesecurity.DTO.IModuleDto;
 import com.sena.servicesecurity.DTO.IUserDto;
 import com.sena.servicesecurity.DTO.IViewDto;
 import com.sena.servicesecurity.Entity.User;
@@ -32,6 +33,7 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     		+ "    u.username = :username AND u.password = :password\r\n"
     		+ "", nativeQuery = true)
     List<IUserDto> getUserWithRole(@Param("username") String username, @Param("password") String password);
+    
 
     @Query(value = "SELECT v.id,  v.description, v.state, v.name, v.route, m.name AS module\r\n"
     		+ "FROM view AS v\r\n"
@@ -44,4 +46,7 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     		+ "WHERE mr.role_id =:roleId ", nativeQuery = true)
     List<IViewDto> getViewsByRoleId(@Param("roleId") Long roleId);
     
+    
+ 
+
 }
