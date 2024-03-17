@@ -43,6 +43,8 @@ public class UserService extends ABaseService<User> implements IUserService {
             
             List<IModuleDto> modules = userRepository.getModulsByRoleId(roleId);
             
+            
+            
             System.out.println(roleId);
             // Crear una implementación concreta de IUserDto y llenarla con los datos obtenidos
            
@@ -86,18 +88,24 @@ public class UserService extends ABaseService<User> implements IUserService {
                 public List<IModuleDto> getModuls() {
                     return modules;
                 }
+		
+	
+
+		@Override
+		public void setModuls(List<IModuleDto> moduls) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	
+					
 
 			
-
-				@Override
-				public void setModuls(List<IModuleDto> views) {
-					// TODO Auto-generated method stub
-					
-				}
 
                 
             };
 
+            System.out.println("datos optenidos "+ dto);
             return Optional.of(dto);
         } else {
             return Optional.empty();

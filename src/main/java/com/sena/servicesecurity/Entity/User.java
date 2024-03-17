@@ -11,6 +11,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -26,10 +27,12 @@ public class User extends ABaseEntity {
 	@JoinColumn(name = "person_id", nullable = false, unique = true)
     private Person person;
     
-    @ManyToMany
+    @NotNull
+	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
       joinColumns = @JoinColumn(name = "user_id"),
       inverseJoinColumns = @JoinColumn(name = "role_id"))
+    
 private Set<Role> role = new HashSet();
 
 	public String getUsername() {

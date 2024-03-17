@@ -6,10 +6,12 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "module")
@@ -23,18 +25,22 @@ public class Module  extends ABaseEntity {
     @Column(name = "description", length = 50, nullable = false, unique = true)
     private String description;
     
-    @ManyToMany/*(fetch = FetchType.LAZY, targetEntity = Role.class, cascade = CascadeType.PERSIST)*/
-    // @ManyToMany(fetch = FetchType.LAZY)
-       @JoinTable(name = "module_role",
-         joinColumns = @JoinColumn(name = "module_id"),
-         inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> role = new HashSet<>();
-    
-    @ManyToMany
+   
+    @NotNull
+	@ManyToMany(fetch = FetchType.EAGER)
        @JoinTable(name = "module_view",
          joinColumns = @JoinColumn(name = "module_id"),
          inverseJoinColumns = @JoinColumn(name = "view_id"))
      private Set<View> view = new HashSet<>();
+
+    
+	public Set<View> getView() {
+		return view;
+	}
+
+	public void setView(Set<View> view) {
+		this.view = view;
+	}
 
 	public String getName() {
 		return name;

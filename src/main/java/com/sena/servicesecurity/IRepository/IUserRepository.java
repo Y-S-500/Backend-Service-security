@@ -46,6 +46,23 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     		+ "WHERE mr.role_id =:roleId ", nativeQuery = true)
     List<IViewDto> getViewsByRoleId(@Param("roleId") Long roleId);
     
+
+    @Query(value = "SELECT \r\n"
+    		+ "    m.id,\r\n"
+    		+ "    m.name AS nameModule,\r\n"
+    		+ "    m.description,\r\n"
+    		+ "    v.name AS viewName,\r\n"
+    		+ "    v.description AS view_description\r\n"
+    		+ "FROM \r\n"
+    		+ "    service_security.module m\r\n"
+    		+ "INNER JOIN  \r\n"
+    		+ "    module_role mr ON mr.module_id = m.id\r\n"
+    		+ "INNER JOIN \r\n"
+    		+ "    module_view mv ON mv.module_id = m.id\r\n"
+    		+ "INNER JOIN \r\n"
+    		+ "    view v ON mv.view_id = v.id\r\n"
+    	
+    		+ "WHERE role_id =:roleId ", nativeQuery = true)
     List<IModuleDto> getModulsByRoleId(@Param("roleId") Long roleId);
     
     
