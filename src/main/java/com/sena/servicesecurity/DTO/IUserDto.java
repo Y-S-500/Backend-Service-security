@@ -7,6 +7,7 @@ public interface IUserDto extends IGenericDto {
 	    String getPersonName();
 	    String getPersonEmail();
 	    Long getRoleId(); // Método para obtener el ID del rol
-	    List<IViewDto> getViews(); // Método para obtener las vistas asociadas al rol
-	    void setViews(List<IViewDto> views);
+	  
+	    List<IModuleDto> getModuls(); 
+	    void setModuls(List<IModuleDto> views);
 }

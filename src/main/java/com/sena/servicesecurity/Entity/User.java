@@ -1,9 +1,14 @@
 package com.sena.servicesecurity.Entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -20,9 +25,23 @@ public class User extends ABaseEntity {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "person_id", nullable = false, unique = true)
     private Person person;
+    
+    @ManyToMany
+    @JoinTable(name = "user_role",
+      joinColumns = @JoinColumn(name = "user_id"),
+      inverseJoinColumns = @JoinColumn(name = "role_id"))
+private Set<Role> role = new HashSet();
 
 	public String getUsername() {
 		return username;
+	}
+
+	public Set<Role> getRole() {
+		return role;
+	}
+
+	public void setRole(Set<Role> role) {
+		this.role = role;
 	}
 
 	public void setUsername(String username) {

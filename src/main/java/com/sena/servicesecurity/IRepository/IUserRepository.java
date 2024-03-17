@@ -46,6 +46,9 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     		+ "WHERE mr.role_id =:roleId ", nativeQuery = true)
     List<IViewDto> getViewsByRoleId(@Param("roleId") Long roleId);
     
+    List<IModuleDto> getModulsByRoleId(@Param("roleId") Long roleId);
+    
+    
     
  
 

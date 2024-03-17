@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +33,11 @@ public class Person extends ABaseEntity {
     
     @Column(name = "address", length = 100, nullable = false)
     private String address;
+    
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+	@JoinColumn(name = "ciudad_id", nullable = false, unique = true)
+    private Ciudad ciudad;
+    
 
 	public String getFirstName() {
 		return firstName;
