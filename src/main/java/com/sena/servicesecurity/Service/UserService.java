@@ -1,5 +1,6 @@
 package com.sena.servicesecurity.Service;
 
+import com.sena.servicesecurity.DTO.IModuleDto;
 import com.sena.servicesecurity.DTO.IUserDto;
 import com.sena.servicesecurity.DTO.IViewDto;
 import com.sena.servicesecurity.Entity.User;
@@ -40,6 +41,9 @@ public class UserService extends ABaseService<User> implements IUserService {
             
             List<IViewDto> views = userRepository.getViewsByRoleId(roleId);
             
+            
+            List<IModuleDto> modules = userRepository.getModulsByRoleId(roleId);
+            
             System.out.println(roleId);
             // Crear una implementación concreta de IUserDto y llenarla con los datos obtenidos
            
@@ -74,16 +78,21 @@ public class UserService extends ABaseService<User> implements IUserService {
                     return userDto.getRoleId();
                 }
 
-                @Override
-                public List<IViewDto> getViews() {
-                    return views;
-                }
+				@Override
+				public List<IModuleDto> getModules() {
+					// TODO Auto-generated method stub
+					return modules;
+				}
 
 				@Override
-				public void setViews(List<IViewDto> views) {
+				public void setModules(List<IModuleDto> model) {
 					// TODO Auto-generated method stub
 					
 				}
+
+			
+
+          
 
                 
             };

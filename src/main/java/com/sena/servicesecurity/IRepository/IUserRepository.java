@@ -10,6 +10,7 @@ import com.sena.servicesecurity.DTO.IModuleDto;
 import com.sena.servicesecurity.DTO.IUserDto;
 import com.sena.servicesecurity.DTO.IViewDto;
 import com.sena.servicesecurity.Entity.User;
+
 @Repository
 public interface IUserRepository extends IBaseRepository<User, Long> {
 
@@ -46,23 +47,31 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     List<IViewDto> getViewsByRoleId(@Param("roleId") Long roleId);
     
 
+  
+    
     @Query(value = "SELECT \r\n"
-    		+ "    m.id,\r\n"
-    		+ "    m.name AS module,\r\n"
-    		+ "    m.description,\r\n"
-    		+ "    m.state,                  "
-    		+ "    v.name AS viewName,\r\n"
-    		+ "    v.description AS view_description\r\n"
-    		+ "FROM \r\n"
-    		+ "    service_security.module m\r\n"
-    		+ "INNER JOIN  \r\n"
-    		+ "    module_role mr ON mr.module_id = m.id\r\n"
-    		+ "INNER JOIN \r\n"
-    		+ "    module_view mv ON mv.module_id = m.id\r\n"
-    		+ "INNER JOIN \r\n"
-    		+ "    view v ON mv.view_id = v.id\r\n"
-    	
-    		+ "WHERE role_id =:roleId ", nativeQuery = true)
+            + "    m.id,\r\n"
+            + "    m.name AS module,\r\n"
+            + "    m.description,\r\n"
+            + "    m.state,\r\n"
+            + "    GROUP_CONCAT(v.name) AS viewName,\r\n"
+          //  + "    GROUP_CONCAT(v.route) AS viewRoute,\r\n"
+            + "    JSON_ARRAYAGG(v.route) AS viewRoute,\r\n" 
+            + "    GROUP_CONCAT(v.description) AS view_description\r\n"
+            + "FROM \r\n"
+            + "    service_security.module m\r\n"
+            + "INNER JOIN  \r\n"
+            + "    module_role mr ON mr.module_id = m.id\r\n"
+            + "INNER JOIN \r\n"
+            + "    module_view mv ON mv.module_id = m.id\r\n"
+            + "INNER JOIN \r\n"
+            + "    view v ON mv.view_id = v.id\r\n"
+            + "WHERE role_id = :roleId\r\n"  // Corregido: Movido la cláusula WHERE al lugar adecuado
+            + "GROUP BY m.id, m.name, m.description"
+            , nativeQuery = true)
     List<IModuleDto> getModulsByRoleId(@Param("roleId") Long roleId);
-}
 
+    
+    
+
+}
