@@ -10,7 +10,6 @@ import com.sena.servicesecurity.DTO.IModuleDto;
 import com.sena.servicesecurity.DTO.IUserDto;
 import com.sena.servicesecurity.DTO.IViewDto;
 import com.sena.servicesecurity.Entity.User;
-
 @Repository
 public interface IUserRepository extends IBaseRepository<User, Long> {
 
@@ -49,8 +48,9 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
 
     @Query(value = "SELECT \r\n"
     		+ "    m.id,\r\n"
-    		+ "    m.name AS nameModule,\r\n"
+    		+ "    m.name AS module,\r\n"
     		+ "    m.description,\r\n"
+    		+ "    m.state,                  "
     		+ "    v.name AS viewName,\r\n"
     		+ "    v.description AS view_description\r\n"
     		+ "FROM \r\n"
@@ -64,9 +64,5 @@ public interface IUserRepository extends IBaseRepository<User, Long> {
     	
     		+ "WHERE role_id =:roleId ", nativeQuery = true)
     List<IModuleDto> getModulsByRoleId(@Param("roleId") Long roleId);
-    
-    
-    
- 
-
 }
+
