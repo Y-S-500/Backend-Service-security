@@ -13,6 +13,6 @@ public interface IModuleDto extends IGenericDto{
     
     String getViewName();
     String getViewRoute();
-  /*  List<IViewDto> getViews();
-    void setViews(List<IViewDto> views);*/
+    List<IViewDto> getViews();
+    void setViews(List<IViewDto> views);
 }

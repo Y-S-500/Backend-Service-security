@@ -49,6 +49,6 @@ public class Role extends ABaseEntity {
 
 	@NotNull
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "role_module", schema = "security", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "module_id"))
+	@JoinTable(name = "module_role", schema = "security", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "module_id"))
 	private Set<Module> module = new HashSet();
 }
