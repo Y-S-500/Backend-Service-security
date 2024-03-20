@@ -24,7 +24,7 @@ public class Department extends ABaseEntity{
 	
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	@JoinColumn(name = "city_id", nullable = false)
+	@JoinColumn(name = "country_id", nullable = false)
     private Country country ;
 
 	
