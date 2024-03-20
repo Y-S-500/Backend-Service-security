@@ -12,7 +12,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "departamentos")
+@Table(name = "department")
 public class Department extends ABaseEntity{
 	
 
