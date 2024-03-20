@@ -39,6 +39,20 @@ public class Person extends ABaseEntity {
     private City city;
     
 
+	public City getCity() {
+		return city;
+	}
+
+
+
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+
+
+
 	public String getFirstName() {
 		return firstName;
 	}
