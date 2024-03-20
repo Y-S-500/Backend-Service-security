@@ -70,9 +70,9 @@ VALUES
 INSERT INTO `service_security`.`module`
 (`state`, `id`, `description`, `name`, `route`)
 VALUES
-('', 1, 'Módulo de seguridad', 'Seguridad', '/security'),
-('', 2, 'Módulo de parámetro', 'Parámetro', '/parameter'),
-('', 3, 'Módulo operativo', 'Operativo', '/operational');
+('', 1, 'Módulo de seguridad', 'Security', '/security'),
+('', 2, 'Módulo de parámetro', 'Parameter', '/parameter'),
+('', 3, 'Módulo operativo', 'Operational', '/operational');
 
 
 INSERT INTO `service_security`.`role`
@@ -93,12 +93,12 @@ route)
 VALUES
 (true,'person','person','./person.html'),
 (true,'role','role','./role.html'),
-(true,'modulo','modulo','./modulo.html'),
-(true,'usuario','usuario','./user.html'),
-(true,'vista','vista','./vista.html'),
-(true,'pais','pais','./country.html'),
-(true,'departamento','departamento','./department.html'),
-(true,'ciudad','ciudad','./city.html');
+(true,'module','module','./module.html'),
+(true,'user','user','./user.html'),
+(true,'view','view','./view.html'),
+(true,'country','country','./country.html'),
+(true,'department','department','./department.html'),
+(true,'city','city','./city.html');
 
 
 
