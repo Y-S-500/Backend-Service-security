@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.sena.servicesecurity.Entity.Departamento;
-import com.sena.servicesecurity.IService.IDepartamentoService;
+import com.sena.servicesecurity.Entity.Department;
+import com.sena.servicesecurity.IService.IDepartmentService;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("v1/api/departamento")
-public class DepartamentoController extends ABaseController<Departamento,IDepartamentoService>{
-	public DepartamentoController(IDepartamentoService service) {
+public class DepartmentController extends ABaseController<Department,IDepartmentService>{
+	public DepartmentController(IDepartmentService service) {
         super(service, "Departamento");
     }
 	

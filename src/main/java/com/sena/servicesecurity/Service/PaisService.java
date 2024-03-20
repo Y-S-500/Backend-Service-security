@@ -3,20 +3,20 @@ package com.sena.servicesecurity.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sena.servicesecurity.Entity.Pais;
+import com.sena.servicesecurity.Entity.Country;
 import com.sena.servicesecurity.IRepository.IBaseRepository;
-import com.sena.servicesecurity.IRepository.IPaisRepository;
-import com.sena.servicesecurity.IService.IPaisService;
+import com.sena.servicesecurity.IRepository.ICountryRepository;
+import com.sena.servicesecurity.IService.ICountryService;
 @Service
-public class PaisService extends ABaseService<Pais> implements IPaisService{
+public class PaisService extends ABaseService<Country> implements ICountryService{
 
 
 	
 	@Autowired
-	public IPaisRepository repository;
+	public ICountryRepository repository;
 
 	@Override
-	protected IBaseRepository<Pais, Long> getRepository() {
+	protected IBaseRepository<Country, Long> getRepository() {
 		// TODO Auto-generated method stub
 		return repository;
 	}

@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.sena.servicesecurity.Entity.Pais;
-import com.sena.servicesecurity.IService.IPaisService;
+import com.sena.servicesecurity.Entity.Country;
+import com.sena.servicesecurity.IService.ICountryService;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("v1/api/pais")
-public class PaisController extends ABaseController<Pais,IPaisService>{
-	public PaisController(IPaisService service) {
+public class CountryController extends ABaseController<Country,ICountryService>{
+	public CountryController(ICountryService service) {
         super(service, "Pais");
     }
 	

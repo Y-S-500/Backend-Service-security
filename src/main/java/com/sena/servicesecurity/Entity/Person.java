@@ -35,8 +35,8 @@ public class Person extends ABaseEntity {
     private String address;
     
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-	@JoinColumn(name = "ciudad_id", nullable = false, unique = true)
-    private Ciudad ciudad;
+	@JoinColumn(name = "city_id", nullable = false)
+    private City city;
     
 
 	public String getFirstName() {
@@ -44,15 +44,7 @@ public class Person extends ABaseEntity {
 	}
 	
 
-	public Ciudad getCiudad() {
-		return ciudad;
-	}
-
-
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
-
+	
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
