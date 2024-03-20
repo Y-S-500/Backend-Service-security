@@ -15,7 +15,7 @@ public class Country extends ABaseEntity{
     private String name_country;
     
     @Column(name = "code", length = 50, nullable = false)
-    private String code;
+    private String code_country;
 
 	public String getName_country() {
 		return name_country;
@@ -25,13 +25,15 @@ public class Country extends ABaseEntity{
 		this.name_country = name_country;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCode_country() {
+		return code_country;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCode_country(String code_country) {
+		this.code_country = code_country;
 	}
+
+
 
 
 	

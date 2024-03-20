@@ -140,14 +140,28 @@ INSERT INTO service_security.person
 VALUES
 ('2000-01-01', true, 1, 2, 'Masculino', '1234567890', 'stev@example.com', 'deidara', 'sss', 'ddd');
 
+INSERT INTO `service_security`.`user`
+(
+
+`state`,
+
+`password`,
+`username`,
+`person_id`)
+VALUES
+(true,"1234","drago",1
+);
+
+
+
 
 INSERT INTO service_security.user_role
 (
-state,
+
 role_id,
 user_id)
 VALUES
-(true,
+(
 1,
 1);
 

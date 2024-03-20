@@ -17,17 +17,12 @@ public class Department extends ABaseEntity{
 	
 
 	  @Column(name = "name", nullable = false, unique = true)
-	    private String name;
+	    private String name_department;
 	    
 	@Column(name = "code", nullable = false)
-	    private String code;
+	    private String code_department;
 	
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	@JoinColumn(name = "country_id", nullable = false)
-    private Country country ;
-
-	
 
 	public Country getCountry() {
 		return country;
@@ -37,21 +32,27 @@ public class Department extends ABaseEntity{
 		this.country = country;
 	}
 
-	public String getName() {
-		return name;
+	public String getName_department() {
+		return name_department;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName_department(String name_department) {
+		this.name_department = name_department;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCode_department() {
+		return code_department;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setCode_department(String code_department) {
+		this.code_department = code_department;
 	}
 
+	
+
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "country_id", nullable = false)
+    private Country country;
+	
 }
 
