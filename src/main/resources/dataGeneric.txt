@@ -141,18 +141,13 @@ VALUES
 ('2000-01-01', true, 1, 2, 'Masculino', '1234567890', 'stev@example.com', 'deidara', 'sss', 'ddd');
 
 
-{
- 
-  "state": true,
+INSERT INTO service_security.user_role
+(
+state,
+role_id,
+user_id)
+VALUES
+(true,
+1,
+1);
 
-  "username": "drago",
-  "password": "1234",
-  "person": {
-    "id": 1
-  },
-  "role": [
-    {
-      "id": 1
-    }
-  ]
-}
