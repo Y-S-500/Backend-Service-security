@@ -12,28 +12,27 @@ import jakarta.persistence.Table;
 @Table (name = "city")
 public class City extends ABaseEntity{
 	@Column(name = "name", length = 50, nullable = false)
-    private String name_city;
+    private String name;
     
     @Column(name = "code", length = 50, nullable = false)
-    private String code_city;
+    private String code;
+	   
 
-	
 
-	    
-	    public String getName_city() {
-		return name_city;
+		public String getName() {
+		return name;
 	}
 
-	public void setName_city(String name_city) {
-		this.name_city = name_city;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCode_city() {
-		return code_city;
+	public String getCode() {
+		return code;
 	}
 
-	public void setCode_city(String code_city) {
-		this.code_city = code_city;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 		@ManyToOne(fetch = FetchType.EAGER, optional = false)
