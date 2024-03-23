@@ -38,6 +38,11 @@ public class Person extends ABaseEntity {
 	@JoinColumn(name = "city_id", nullable = false)
     private City city;
     
+    @Column(name = "type_document", length = 50, nullable = false)
+    private String typeDocument;
+    
+    @Column(name = "document", length = 10, nullable = false, unique=true)
+    private String Document;
 
 	public City getCity() {
 		return city;
@@ -110,5 +115,35 @@ public class Person extends ABaseEntity {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}    
+	}
+
+
+
+
+	public String getTypeDocument() {
+		return typeDocument;
+	}
+
+
+
+
+	public void setTypeDocument(String typeDocument) {
+		this.typeDocument = typeDocument;
+	}
+
+
+
+
+	public String getDocument() {
+		return Document;
+	}
+
+
+
+
+	public void setDocument(String document) {
+		Document = document;
+	}  
+	
+	
 }
